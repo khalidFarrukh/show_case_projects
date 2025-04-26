@@ -1,0 +1,104 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --breakpoint-sg_15xx: 1520px;
+  --breakpoint-sg_13xx: 1320px;
+  --breakpoint-sg_11xx: 1120px;
+  --breakpoint-sg_10xx: 1020px;
+  --breakpoint-sg_8xx: 820px;
+  --breakpoint-sg_4xx: 620px;
+  --breakpoint-sg_1xx: 100px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: 'Poppins', Helvetica, sans-serif;
+}
+
+.navContainer {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  position: fixed;
+  justify-content: center;
+}
+
+.navbar {
+  display: flex;
+  position: relative;
+  height: 70px;
+
+  align-items: center;
+}
+
+
+.navigationArea {
+  width: 440px;
+  height: 35px;
+  margin-inline: auto;
+  font-size: 20px;
+  display: flex;
+  background-color: blue;
+}
+
+.right_nav_container {
+  height: 35px;
+  display: flex;
+  position: relative;
+  background-color: blue;
+}
+
+.right_nav_icon {
+  width: 35px;
+  height: 100%;
+}
+
+.cart_items_number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30%;
+  background-color: green;
+}
