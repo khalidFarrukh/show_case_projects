@@ -53,52 +53,6 @@ h5 {
 
 body {
   background: var(--background);
-  color: var(--foreground);
+  color: var(--background);
   font-family: 'Poppins', Helvetica, sans-serif;
-}
-
-.navContainer {
-  width: 100%;
-  background-color: white;
-  display: flex;
-  position: fixed;
-  justify-content: center;
-}
-
-.navbar {
-  display: flex;
-  position: relative;
-  height: 70px;
-
-  align-items: center;
-}
-
-
-.navigationArea {
-  width: 440px;
-  height: 35px;
-  margin-inline: auto;
-  font-size: 20px;
-  display: flex;
-  background-color: blue;
-}
-
-.right_nav_container {
-  height: 35px;
-  display: flex;
-  position: relative;
-  background-color: blue;
-}
-
-.right_nav_icon {
-  width: 35px;
-  height: 100%;
-}
-
-.cart_items_number {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 30%;
-  background-color: green;
 }
