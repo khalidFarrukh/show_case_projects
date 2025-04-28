@@ -38,10 +38,9 @@ export default function Home() {
       >
         <section className=
           {`
-           
             relative 
             bg-amber-300
-            `}
+          `}
         >
           <Image
             src="/banner_1_desktop.png"
@@ -76,21 +75,19 @@ export default function Home() {
             Shop Now
           </a>
         </section>
-        <section className={`
-        ${width > 1520 ? "w-[1486px]"
-            : width > 1320 ? "w-[1286px]"
-              : width > 1120 ? "w-[1086px]"
-                : width > 1020 ? "w-[1000px]"
-                  : width > 100 ? "w-[100%]"
-                    : ""
-          }
-        relative
-        h-[647px] 
-        bg-amber-950 
-        flex 
-        flex-col 
-        items-center
-        `}
+        <section className=
+          {`
+            max-w-[1400px]
+            ${width >= 320 ? "w-[100%]"
+              : ""
+            }
+            relative
+            h-[647px] 
+            bg-amber-950 
+            flex 
+            flex-col 
+            items-center
+          `}
         >
           <h1 className={`
             w-[77%] 
@@ -107,20 +104,18 @@ export default function Home() {
            */}
           </div>
         </section>
-        <section className={`
-         ${width > 1520 ? "w-[1486px]"
-            : width > 1320 ? "w-[1286px]"
-              : width > 1120 ? "w-[1086px]"
-                : width > 1020 ? "w-[1000px]"
-                  : width > 100 ? "w-[100%]"
-                    : ""
-          }
-         h-[1022px]
-         bg-amber-500 
-         relative 
-         flex 
-         flex-col 
-         items-center
+        <section className=
+          {`
+            max-w-[1400px]
+            ${width >= 320 ? "w-[100%]"
+              : ""
+            }
+            h-[1022px]
+            bg-amber-500 
+            relative 
+            flex 
+            flex-col 
+            items-center
          `}
         >
           <h1 className={`

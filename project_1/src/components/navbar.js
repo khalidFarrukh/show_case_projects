@@ -320,7 +320,9 @@ export default function Navbar() {
           } */}
         </>
       }{
-        <div className=
+        !isTab &&
+        <div
+          className=
           {`
             max-w-[1200px]
             ${width >= 320 ? "w-[96%] mx-[2%]"

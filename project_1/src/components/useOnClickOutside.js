@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function useOnClickOutside(parentRef, childRef, handler, isActive) {
+export default function useOnClickOutside(parentRef, childRef, handler, isActive = true) {
     useEffect(() => {
         if (!isActive) return;
         const listener = (event) => {
@@ -11,6 +11,7 @@ export default function useOnClickOutside(parentRef, childRef, handler, isActive
                 return;
             }
             handler(event); // Otherwise, call the handler
+            console.log("outside");
         };
 
         document.addEventListener("mousedown", listener);
