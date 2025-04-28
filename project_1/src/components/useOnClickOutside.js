@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-export default function useOnClickOutside(ref, handler, isActive = true) {
+export default function useOnClickOutside(ref, handler, isActive) {
     useEffect(() => {
         if (!isActive) return;
         const listener = (event) => {
