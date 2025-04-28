@@ -24,8 +24,8 @@ export default function Navbar() {
         : ""
       }
       h-[70px]
-      bg-[red]
-      z-11
+      bg-[var(--background)]
+      z-[2]
       relative
       flex
       items-center
@@ -60,13 +60,14 @@ export default function Navbar() {
           isTab &&
           <button
             ref={menuBtnRef}
-            className={`
-                cursor-pointer 
-                mr-[3%] 
-                flex 
-                relative 
-                bg-blue-500
-                `}
+            className=
+            {`
+              cursor-pointer 
+              mr-[3%] 
+              flex 
+              relative 
+   
+            `}
             onClick={menuToggle}
           >
             <Image
@@ -74,12 +75,13 @@ export default function Navbar() {
               alt="Menu icon image"
               width={200}
               height={80}
-              className={`
-                  w-[100%] 
-                  h-[30px] 
-                  min-w-[35px]
-                  bg-amber-300
-                  `}
+              className=
+              {`
+                w-[100%] 
+                h-[30px] 
+                min-w-[35px]
+                dark:invert
+              `}
               id="menuBtn"
 
               priority
@@ -92,18 +94,19 @@ export default function Navbar() {
             mx-[0_auto] 
             flex 
             relative 
-            bg-[blue]
             `}>
           <Image
             src="/logo.svg"
             alt="logo image"
             width={200}
             height={80}
-            className={`
-                w-[135px] 
-                h-[35px] 
-                min-w-[100px]
-                `}
+            className=
+            {`
+              w-[135px] 
+              min-w-[100px]
+              h-[35px] 
+              dark:invert
+            `}
             priority
           />
         </a>
@@ -115,7 +118,7 @@ export default function Navbar() {
             mx-auto
             text-[20px] 
             flex
-            bg-[blue]
+        
             `}>
             <HomeLink className={`
                 cursor-pointer
@@ -141,7 +144,7 @@ export default function Navbar() {
             h-[35px] 
             mx-[auto_0] 
             flex 
-            bg-[green] 
+  
             `}
         >
           {
@@ -160,10 +163,12 @@ export default function Navbar() {
                   alt="search button"
                   width={200}
                   height={80}
-                  className={`
-                w-[35px]
-                h-[100%]
-                `}
+                  className=
+                  {`
+                    w-[35px]
+                    h-[100%]
+                    dark:invert
+                  `}
                   priority
                 />
               </button>
@@ -177,9 +182,11 @@ export default function Navbar() {
                   alt="account button"
                   width={200}
                   height={80}
-                  className={`
-                  w-[35px]
-                  h-[100%]
+                  className=
+                  {`
+                    w-[35px]
+                    h-[100%]
+                    dark:invert
                   `}
                   priority
                 />
@@ -196,28 +203,34 @@ export default function Navbar() {
               alt="cart button"
               width={200}
               height={80}
-              className={`
-                  w-[35px]
-                  h-[100%]
-                  inline
-                  `}
+              className=
+              {`
+                w-[35px]
+                h-[100%]
+                dark:invert
+                inline
+              `}
               priority
             />
-            <span className={`
-              bg-[red] 
-              text-white 
-              text-xs 
-              ml-[-5px] 
-              px-2 
-              h-5 
-              min-w-[20px] 
-              inline-flex 
-              items-center 
-              justify-center 
-              rounded-full
+            <span className=
+              {`
+                bg-[var(--foreground)]
+                text-[var(--background)]
+                text-xs 
+                font-extrabold
+                ml-[-2px] 
+                px-2
+                py-1 
+                min-w-[20px] 
+                inline-flex 
+                items-center 
+                justify-center 
+                rounded-full
               `}
             >
-              1
+              {
+                2
+              }
             </span>
           </button>
         </div>
@@ -228,14 +241,13 @@ export default function Navbar() {
           <div
 
             className={` 
-            z-[2]
             fixed 
             text-2xl 
             transition-all 
             duration-250 
             ease-in-out
             ${isMenuOpen ? "top-[80px]" : "top-[-185px]"}
-            bg-[skyblue]
+  
             `}
           >
             <div
@@ -243,7 +255,7 @@ export default function Navbar() {
               className={`
               w-[88vw] 
               relative 
-              bg-amber-300 
+              
               mx-auto
               `}
             >
@@ -328,6 +340,7 @@ export default function Navbar() {
             ${width >= 320 ? "w-[96%] mx-[2%]"
               : ""
             }
+            z-[1]
             fixed 
             flex 
             flex-col 
@@ -341,12 +354,15 @@ export default function Navbar() {
             ref={searchRef}
             className=
             {`
+              
               w-[80%] 
               h-[35px] 
-              bg-amber-400 
+              bg-[var(--background)]
+              text-[var(--foreground)]
               relative 
               mx-auto 
-              rounded-[50px] 
+              rounded-[50px]
+              border-[2px]
               flex 
               flex-row 
               items-center 
@@ -364,11 +380,13 @@ export default function Navbar() {
               alt="search button"
               width={200}
               height={80}
-              className={`
+              className=
+              {`
                 w-[35px]
                 h-[100%]
                 pr-[15px]
-                `}
+                dark:invert
+              `}
               priority
             />
           </div>

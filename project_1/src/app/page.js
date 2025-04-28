@@ -12,14 +12,13 @@ export default function Home() {
       flex 
       flex-col 
       items-center 
-      bg-[green] 
       m-[0_auto]
       `}
     >
       <header className={`
       w-[100%] 
+      bg-[var(--background)]
       z-[1] 
-      bg-[white] 
       fixed 
       flex 
       justify-center
@@ -38,6 +37,10 @@ export default function Home() {
       >
         <section className=
           {`
+            max-w-[1520px]
+              ${width >= 320 ? "w-[100%]"
+              : ""
+            }
             relative 
             bg-amber-300
           `}
@@ -49,10 +52,7 @@ export default function Home() {
             height={846}
             className=
             {`
-              max-w-[1400px]
-              ${width >= 320 ? "w-[100%]"
-                : ""
-              }
+              w-[100%]
             `}
             priority
           />
@@ -77,7 +77,7 @@ export default function Home() {
         </section>
         <section className=
           {`
-            max-w-[1400px]
+            max-w-[1520px]
             ${width >= 320 ? "w-[100%]"
               : ""
             }
@@ -106,7 +106,7 @@ export default function Home() {
         </section>
         <section className=
           {`
-            max-w-[1400px]
+            max-w-[1520px]
             ${width >= 320 ? "w-[100%]"
               : ""
             }
