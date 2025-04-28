@@ -10,17 +10,18 @@ export default function Navbar() {
     setIsMenuOpen,
     isSearchOpen,
     setIsSearchOpen,
+    menuBtnRef,
     menuRef,
+    searchBtnRef,
     searchRef
 
   } = useAppContext();
   const NavBarContent = ({ children }) =>
 
     <nav className={`
-      ${width >= 1200 ? "w-[1200px]"
-        : width >= 1024 ? "w-[96%] mx-[2%]"
-          : width >= 320 ? "w-[96%] mx-[2%]"
-            : ""
+      max-w-[1200px]
+      ${width >= 320 ? "w-[96%] mx-[2%]"
+        : ""
       }
       h-[70px]
       bg-[red]
@@ -36,7 +37,7 @@ export default function Navbar() {
     <NavBarContent></NavBarContent>
   );
 
-  const isTab = width > 0 && width < 1005;
+  const isTab = width > 0 && width < 860;
 
   const menuToggle = () => {
     setIsMenuOpen(prev => !prev)
@@ -58,6 +59,7 @@ export default function Navbar() {
         {
           isTab &&
           <button
+            ref={menuBtnRef}
             className={`
                 cursor-pointer 
                 mr-[3%] 
@@ -75,8 +77,7 @@ export default function Navbar() {
               className={`
                   w-[100%] 
                   h-[30px] 
-                  min-w-[35px] 
-                  p-[0_5px] 
+                  min-w-[35px]
                   bg-amber-300
                   `}
               id="menuBtn"
@@ -143,44 +144,47 @@ export default function Navbar() {
             bg-[green] 
             `}
         >
-          <button
-            className={`
-              cursor-pointer 
-              m-[0_10px]
-              `}
-            onClick={searchToggle}
-          >
-            <Image
-              src="/search_icon.svg"
-              alt="search button"
-              width={200}
-              height={80}
-              className={`
+          {
+            (width >= 860) &&
+            <>
+              <button
+                ref={searchBtnRef}
+                className={`
+                  cursor-pointer 
+                  m-[0_10px]
+                  `}
+                onClick={searchToggle}
+              >
+                <Image
+                  src="/search_icon.svg"
+                  alt="search button"
+                  width={200}
+                  height={80}
+                  className={`
                 w-[35px]
                 h-[100%]
                 `}
-              priority
-            />
-          </button>
-          {
-            (width > 452) &&
-            <button className={`
+                  priority
+                />
+              </button>
+              <button className={`
               cursor-pointer 
               m-[0_10px]
               `}
-            >
-              <Image
-                src="/account_icon.svg"
-                alt="account button"
-                width={200}
-                height={80}
-                className={`
+              >
+                <Image
+                  src="/account_icon.svg"
+                  alt="account button"
+                  width={200}
+                  height={80}
+                  className={`
                   w-[35px]
                   h-[100%]
                   `}
-                priority
-              />
-            </button>
+                  priority
+                />
+              </button>
+            </>
           }
           <button className={`
               cursor-pointer 
@@ -286,11 +290,9 @@ export default function Navbar() {
                 hover:bg-amber-300
                 `}
               />
-              {
-                (width > 0 && width < 452) &&
-                <>
-                  <hr />
-                  <a className={`
+
+              <hr />
+              <a className={`
                     h-[50px] 
                     pl-[10px] 
                     flex 
@@ -299,9 +301,7 @@ export default function Navbar() {
                     bg-amber-600 
                     hover:bg-amber-300
                   `}
-                  >Profile</a>
-                </>
-              }
+              >Profile</a>
             </div>
           </div>
           {/* {
@@ -320,30 +320,35 @@ export default function Navbar() {
           } */}
         </>
       }{
-        <div className={`
-          w-[100%] 
-          fixed 
-          flex 
-          flex-col 
-          transition-all 
-          duration-250 
-          ease-in-out
-          ${isSearchOpen ? "top-[80px]" : "top-[-10px]"}
+        <div className=
+          {`
+            max-w-[1200px]
+            ${width >= 320 ? "w-[96%] mx-[2%]"
+              : ""
+            }
+            fixed 
+            flex 
+            flex-col 
+            transition-all 
+            duration-250 
+            ease-in-out
+            ${isSearchOpen ? "top-[80px]" : "top-[-10px]"}
           `}
         >
           <div
             ref={searchRef}
-            className={`
-            relative 
-            w-[75%] 
-            h-[35px] 
-            bg-amber-400 
-            mx-auto 
-            rounded-[50px] 
-            flex 
-            flex-row 
-            items-center 
-            justify-center
+            className=
+            {`
+              w-[80%] 
+              h-[35px] 
+              bg-amber-400 
+              relative 
+              mx-auto 
+              rounded-[50px] 
+              flex 
+              flex-row 
+              items-center 
+              justify-center
             `}
           >
             <input className={`

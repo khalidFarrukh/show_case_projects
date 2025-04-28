@@ -36,24 +36,23 @@ export default function Home() {
         top-[70px]
         `}
       >
-        <section className={`
-          relative 
-          bg-amber-300
-          `}
+        <section className=
+          {`
+           
+            relative 
+            bg-amber-300
+            `}
         >
           <Image
             src="/banner_1_desktop.png"
             alt="banner image"
             width={1486}
             height={846}
-            className={`
-              
-            ${width > 1520 ? "w-[1486px]"
-                : width > 1320 ? "w-[1286px]"
-                  : width > 1120 ? "w-[1086px]"
-                    : width > 1020 ? "w-[1000px]"
-                      : width > 100 ? "w-[100%]"
-                        : ""
+            className=
+            {`
+              max-w-[1400px]
+              ${width >= 320 ? "w-[100%]"
+                : ""
               }
             `}
             priority

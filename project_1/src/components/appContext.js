@@ -10,13 +10,15 @@ export function AppProvider({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isSearchOpen, setIsSearchOpen] = useState(false);
 
+  const menuBtnRef = useRef(null);
   const menuRef = useRef(null);
+  const searchBtnRef = useRef(null);
   const searchRef = useRef(null);
 
   // Close Menu when clicking outside
-  useOnClickOutside(menuRef, () => setIsMenuOpen(false), isMenuOpen);
+  useOnClickOutside(menuBtnRef, menuRef, () => setIsMenuOpen(false), isMenuOpen);
   // Close Search when clicking outside
-  useOnClickOutside(searchRef, () => setIsSearchOpen(false), isSearchOpen);
+  useOnClickOutside(searchBtnRef, searchRef, () => setIsSearchOpen(false), isSearchOpen);
   return (
     <AppContext.Provider value={
       {
@@ -25,7 +27,9 @@ export function AppProvider({ children }) {
         setIsMenuOpen,
         isSearchOpen,
         setIsSearchOpen,
+        menuBtnRef,
         menuRef,
+        searchBtnRef,
         searchRef
       }}>
       {children}
