@@ -16,7 +16,17 @@ export default function Home() {
       m-[0_auto]
       `}
     >
-      <Navbar />
+      <header className={`
+      w-[100%] 
+      z-[1] 
+      bg-[white] 
+      fixed 
+      flex 
+      justify-center
+      `}
+      >
+        <Navbar />
+      </header>
       <main className={`
         w-[100%] 
         flex 
@@ -37,6 +47,7 @@ export default function Home() {
             width={1486}
             height={846}
             className={`
+              
             ${width > 1520 ? "w-[1486px]"
                 : width > 1320 ? "w-[1286px]"
                   : width > 1120 ? "w-[1086px]"

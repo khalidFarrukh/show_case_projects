@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import { useRef, useState, useEffect } from "react";
 import { useAppContext } from "./appContext";
 
 export default function Navbar() {
@@ -10,50 +9,39 @@ export default function Navbar() {
     isMenuOpen,
     setIsMenuOpen,
     isSearchOpen,
-    setIsSearchOpen } = useAppContext();
-  const NavContainer = ({ children }) =>
-    <div name="navbar_container" className={`
-      w-[100%] 
-      z-10 
-      bg-[white] 
-      fixed 
-      flex 
-      justify-center
+    setIsSearchOpen,
+    menuRef,
+    searchRef
+
+  } = useAppContext();
+  const NavBarContent = ({ children }) =>
+
+    <nav className={`
+      ${width >= 1200 ? "w-[1200px]"
+        : width >= 1024 ? "w-[96%] mx-[2%]"
+          : width >= 320 ? "w-[96%] mx-[2%]"
+            : ""
+      }
+      h-[70px]
+      bg-[red]
+      z-11
+      relative
+      flex
+      items-center
       `}
     >
-      <div className={`
-        ${width > 1520 ? "w-[1486px]"
-          : width > 1320 ? "w-[1286px]"
-            : width > 1120 ? "w-[1086px]"
-              : width > 1020 ? "w-[1000px]"
-                : width > 100 ? "w-[100%]"
-                  : ""
-        }
-
-        bg-[red]
-        z-11
-        relative
-        flex
-        h-[70px]
-        items-center
-        `}
-      >
-        {children}
-      </div>
-    </div >
-
+      {children}
+    </nav>
   if (width === undefined) return (
-    <NavContainer></NavContainer>
+    <NavBarContent></NavBarContent>
   );
 
   const isTab = width > 0 && width < 1005;
 
   const menuToggle = () => {
-    setIsSearchOpen(false)
     setIsMenuOpen(prev => !prev)
   }
   const searchToggle = () => {
-    setIsMenuOpen(false)
     setIsSearchOpen(prev => !prev)
   }
 
@@ -65,14 +53,14 @@ export default function Navbar() {
 
   return (
     <>
-      <NavContainer>
+      <NavBarContent>
         {/* menu button */}
         {
           isTab &&
           <button
             className={`
                 cursor-pointer 
-                m-[0_3%_0_6%] 
+                mr-[3%] 
                 flex 
                 relative 
                 bg-blue-500
@@ -100,8 +88,7 @@ export default function Navbar() {
 
         <a className={`
             cursor-pointer 
-            ml-[5px] 
-            mx-auto 
+            mx-[0_auto] 
             flex 
             relative 
             bg-[blue]
@@ -125,7 +112,7 @@ export default function Navbar() {
             w-[440px]
             h-[35px]
             mx-auto
-            text-[20px]
+            text-[20px] 
             flex
             bg-[blue]
             `}>
@@ -151,11 +138,9 @@ export default function Navbar() {
 
         <div className={`
             h-[35px] 
-            relative 
-            mx-auto 
+            mx-[auto_0] 
             flex 
-            bg-[blue] 
-            ${isTab ? "mr-[6%]" : "mr-[5px]"}
+            bg-[green] 
             `}
         >
           <button
@@ -232,26 +217,28 @@ export default function Navbar() {
             </span>
           </button>
         </div>
-      </NavContainer>
+      </NavBarContent>
       {
         isTab &&
         <>
-          <div className={`
-            w-[100%] 
-            z-2 
+          <div
+
+            className={` 
+            z-[2]
             fixed 
-            flex 
-            flex-col 
             text-2xl 
             transition-all 
             duration-250 
             ease-in-out
             ${isMenuOpen ? "top-[80px]" : "top-[-185px]"}
+            bg-[skyblue]
             `}
           >
-            <div className={`
+            <div
+              ref={menuRef}
+              className={`
+              w-[88vw] 
               relative 
-              w-[88%] 
               bg-amber-300 
               mx-auto
               `}
@@ -317,7 +304,7 @@ export default function Navbar() {
               }
             </div>
           </div>
-          {
+          {/* {
             isMenuOpen &&
             <div
               className={`
@@ -325,18 +312,16 @@ export default function Navbar() {
               h-[100vh] 
               z-[1] 
               fixed
+              bg-[orange]
               `}
               onClick={menuToggle}
             >
             </div>
-          }
+          } */}
         </>
       }{
-        isTab &&
-
         <div className={`
           w-[100%] 
-          z-2 
           fixed 
           flex 
           flex-col 
@@ -346,9 +331,11 @@ export default function Navbar() {
           ${isSearchOpen ? "top-[80px]" : "top-[-10px]"}
           `}
         >
-          <div className={`
+          <div
+            ref={searchRef}
+            className={`
             relative 
-            w-[80%] 
+            w-[75%] 
             h-[35px] 
             bg-amber-400 
             mx-auto 
