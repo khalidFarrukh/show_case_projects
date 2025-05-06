@@ -6,6 +6,9 @@ import { useAppContext } from "@/components/appContext";
 
 export default function Home() {
   const { width } = useAppContext(); // custom Hook
+  const bannerImageSrc = width > 480 ? "/banner_1_desktop.png" : "/banner_1_mobile.png";
+  const bannerBtnLeftPos = width > 480 ?  "12%" : Math.floor((width - 255) / 2).toString() + "px" ;
+  console.log(bannerBtnLeftPos)
 
   return (
     <div className={`
@@ -38,15 +41,13 @@ export default function Home() {
         <section className=
           {`
             max-w-[1520px]
-              ${width >= 320 ? "w-[100%]"
-              : ""
-            }
+            w-[100%]
             relative 
             bg-amber-300
           `}
         >
           <Image
-            src="/banner_1_desktop.png"
+            src={bannerImageSrc}
             alt="banner image"
             width={1486}
             height={846}
@@ -59,8 +60,8 @@ export default function Home() {
           <a className={`
             cursor-pointer 
             absolute 
-            w-[16%] 
-            h-[5%] 
+            w-[255px] 
+            h-[45px] 
             rounded-[10px] 
             bg-[#38CB89] 
             text-black 
@@ -68,9 +69,9 @@ export default function Home() {
             flex 
             items-center 
             justify-center 
-            ${"top-[68%]"} 
-            ${"left-[12%]"}
+            ${width > 480 ? "top-[68%]" : "top-[88%]"} 
             `}
+            style={{ left: bannerBtnLeftPos }}
           >
             Shop Now
           </a>
