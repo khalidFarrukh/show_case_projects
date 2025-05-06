@@ -195,7 +195,7 @@ export default function Navbar() {
           }
           <button className={`
               cursor-pointer 
-              m-[0_10px]
+              m-[0_0_0_10px]
               `}
           >
             <Image

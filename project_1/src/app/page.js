@@ -7,7 +7,7 @@ import { useAppContext } from "@/components/appContext";
 export default function Home() {
   const { width } = useAppContext(); // custom Hook
   const bannerImageSrc = width > 480 ? "/banner_1_desktop.png" : "/banner_1_mobile.png";
-  const bannerBtnLeftPos = width > 480 ?  "12%" : Math.floor((width - 255) / 2).toString() + "px" ;
+  const bannerBtnLeftPos = width > 480 ? "12%" : Math.floor((width - 255) / 2).toString() + "px";
   console.log(bannerBtnLeftPos)
 
   return (
@@ -42,7 +42,7 @@ export default function Home() {
           {`
             max-w-[1520px]
             w-[100%]
-            relative 
+            relative
             bg-amber-300
           `}
         >
@@ -79,9 +79,7 @@ export default function Home() {
         <section className=
           {`
             max-w-[1520px]
-            ${width >= 320 ? "w-[100%]"
-              : ""
-            }
+            w-[100%]
             relative
             h-[647px] 
             bg-amber-950 
