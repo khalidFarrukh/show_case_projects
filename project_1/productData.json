@@ -1,0 +1,50 @@
+[
+  {
+    "title": "Wireless Headphones",
+    "price": 89.99,
+    "rating": 4.5,
+    "createdAt": {
+      "$date": "2025-05-13T12:20:01Z"
+    }
+  },
+  {
+    "title": "Wireless Headphones",
+    "price": 89.99,
+    "rating": 4.5,
+    "createdAt": {
+      "$date": "2025-05-13T12:20:01Z"
+    }
+  },
+  {
+    "title": "Wireless Headphones",
+    "price": 89.99,
+    "rating": 4.5,
+    "createdAt": {
+      "$date": "2025-05-13T12:20:01Z"
+    }
+  },
+  {
+    "title": "Wireless Headphones",
+    "price": 89.99,
+    "rating": 4.5,
+    "createdAt": {
+      "$date": "2025-05-13T12:20:01Z"
+    }
+  },
+  {
+    "title": "Wireless Headphones",
+    "price": 89.99,
+    "rating": 4.5,
+    "createdAt": {
+      "$date": "2025-05-13T12:20:01Z"
+    }
+  },
+  {
+    "title": "Wireless Headphones",
+    "price": 89.99,
+    "rating": 4.5,
+    "createdAt": {
+      "$date": "2025-05-13T12:20:01Z"
+    }
+  }
+]
